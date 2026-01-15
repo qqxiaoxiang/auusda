@@ -1,0 +1,183 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Products - Auusda" description="Browse our wide range of high-quality products">
+  <!-- Page Banner -->
+  <section class="bg-blue-600 text-white py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">Our Products</h1>
+      <p class="text-lg">Explore our comprehensive range of high-quality products designed for global markets.</p>
+    </div>
+  </section>
+
+  <!-- Product Categories -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Category 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-64 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-2xl">Electronics Category</span>
+          </div>
+          <div class="p-8">
+            <h2 class="text-2xl font-bold mb-4">Electronics</h2>
+            <p class="text-gray-600 mb-6">High-quality electronic products including consumer electronics, industrial components, and more.</p>
+            <a href="/products/electronics" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium">
+              View Products
+            </a>
+          </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-64 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-2xl">Textiles Category</span>
+          </div>
+          <div class="p-8">
+            <h2 class="text-2xl font-bold mb-4">Textiles</h2>
+            <p class="text-gray-600 mb-6">Premium textiles and fabrics for apparel, home decor, industrial applications, and more.</p>
+            <a href="/products/textiles" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium">
+              View Products
+            </a>
+          </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-64 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-2xl">Home Goods Category</span>
+          </div>
+          <div class="p-8">
+            <h2 class="text-2xl font-bold mb-4">Home Goods</h2>
+            <p class="text-gray-600 mb-6">Stylish and functional home products including kitchenware, furniture, decor, and more.</p>
+            <a href="/products/home-goods" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium">
+              View Products
+            </a>
+          </div>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-64 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-2xl">Industrial Equipment Category</span>
+          </div>
+          <div class="p-8">
+            <h2 class="text-2xl font-bold mb-4">Industrial Equipment</h2>
+            <p class="text-gray-600 mb-6">Reliable industrial equipment for manufacturing, construction, and production processes.</p>
+            <a href="/products/industrial-equipment" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium">
+              View Products
+            </a>
+          </div>
+        </div>
+
+        <!-- Category 5 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-64 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-2xl">Medical Supplies Category</span>
+          </div>
+          <div class="p-8">
+            <h2 class="text-2xl font-bold mb-4">Medical Supplies</h2>
+            <p class="text-gray-600 mb-6">High-quality medical equipment and supplies for healthcare facilities worldwide.</p>
+            <a href="/products/medical-supplies" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium">
+              View Products
+            </a>
+          </div>
+        </div>
+
+        <!-- Category 6 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-64 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-2xl">Automotive Parts Category</span>
+          </div>
+          <div class="p-8">
+            <h2 class="text-2xl font-bold mb-4">Automotive Parts</h2>
+            <p class="text-gray-600 mb-6">Genuine and aftermarket automotive parts for various vehicle makes and models.</p>
+            <a href="/products/automotive-parts" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium">
+              View Products
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="bg-gray-50 py-16">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Products</h2>
+        <p class="text-lg text-gray-600">Our most popular products chosen by customers worldwide.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Featured Product 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-48 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-2xl">Product Image</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Smartphone</h3>
+            <p class="text-gray-600 mb-4">Latest model smartphone with advanced features and specifications.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-blue-600 font-bold text-lg">$699.99</span>
+              <a href="/products/electronics/smartphone" class="text-blue-600 hover:text-blue-800 font-medium">
+                Details →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Product 2 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-48 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-2xl">Product Image</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Cotton Fabric</h3>
+            <p class="text-gray-600 mb-4">Premium quality cotton fabric suitable for various textile applications.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-blue-600 font-bold text-lg">$5.99/m</span>
+              <a href="/products/textiles/cotton-fabric" class="text-blue-600 hover:text-blue-800 font-medium">
+                Details →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Product 3 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-48 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-2xl">Product Image</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Kitchen Utensils Set</h3>
+            <p class="text-gray-600 mb-4">Complete set of stainless steel kitchen utensils for modern kitchens.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-blue-600 font-bold text-lg">$39.99</span>
+              <a href="/products/home-goods/kitchen-utensils" class="text-blue-600 hover:text-blue-800 font-medium">
+                Details →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Product 4 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-48 bg-gray-200 flex items-center justify-center">
+            <span class="text-gray-400 text-2xl">Product Image</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Industrial Pump</h3>
+            <p class="text-gray-600 mb-4">High-performance industrial pump for various fluid handling applications.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-blue-600 font-bold text-lg">$1,299.99</span>
+              <a href="/products/industrial-equipment/industrial-pump" class="text-blue-600 hover:text-blue-800 font-medium">
+                Details →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

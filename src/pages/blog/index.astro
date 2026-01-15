@@ -1,0 +1,151 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { blogPosts } from '../../data/blogPosts.js';
+
+// Convert the blogPosts object to an array for easy iteration, preserving the slug
+const blogPostsArray = Object.entries(blogPosts).map(([slug, post]) => ({
+  ...post,
+  slug
+})).sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date, newest first
+
+// Pagination setup
+const postsPerPage = 6;
+const totalPosts = blogPostsArray.length;
+const totalPages = Math.ceil(totalPosts / postsPerPage);
+
+// Get current page from URL params (for backward compatibility)
+const currentPage = parseInt(Astro.url.searchParams.get('page')) || 1;
+
+// For backward compatibility: redirect to dynamic route if page > 1
+if (currentPage > 1) {
+  return Astro.redirect(`/blog/page/${currentPage}`, 301);
+}
+
+// For page 1, show first page of posts
+const startIndex = 0;
+const endIndex = postsPerPage;
+const paginatedPosts = blogPostsArray.slice(startIndex, endIndex);
+---
+
+<Layout title="Auusda Blog - Laptop Guides and Reviews" description="Latest news, reviews, and guides about Auusda laptops and technology">
+  <!-- Blog Hero Section -->
+  <section class="relative w-full h-[40vh] min-h-[300px] overflow-hidden bg-blue-600">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center">
+      <div class="container mx-auto px-4 text-center text-white">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Auusda Blog</h1>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto">Latest news, reviews, and guides about Auusda laptops and technology</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog List Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {paginatedPosts.map(post => (
+          <article key={post.slug} class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 overflow-hidden">
+              <img 
+                src={post.image} 
+                alt={post.title} 
+                class="w-full h-full object-cover transition-transform hover:scale-105"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <span class="mr-4">{post.date}</span>
+                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">{post.category}</span>
+              </div>
+              <h2 class="text-xl font-semibold mb-3">
+                <a href={`/blog/${post.slug}`} class="text-gray-900 hover:text-blue-600 transition-colors">
+                  {post.title}
+                </a>
+              </h2>
+              <p class="text-gray-600 mb-4">{post.excerpt}</p>
+              <a 
+                href={`/blog/${post.slug}`} 
+                class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800"
+              >
+                Read More
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Pagination -->
+      {totalPages > 1 && (
+        <div class="mt-12 flex justify-center">
+          <nav class="inline-flex items-center space-x-2">
+            <a 
+              href="#" 
+              class={`px-4 py-2 bg-white border border-gray-300 rounded-md text-sm font-medium transition-colors opacity-50 pointer-events-none text-gray-400`}
+              aria-disabled="true"
+            >
+              Previous
+            </a>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+              <a 
+                key={page} 
+                href={page === 1 ? '/blog' : `/blog/page/${page}`} 
+                class={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${page === 1 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'}`}
+                aria-current={page === 1 ? 'page' : undefined}
+              >
+                {page}
+              </a>
+            ))}
+            <a 
+              href={`/blog/page/2`} 
+              class={`px-4 py-2 bg-white border border-gray-300 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-50`}
+              aria-disabled="false"
+            >
+              Next
+            </a>
+          </nav>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Additional blog-specific styles */
+  .blog-post-card {
+    transition: all 0.3s ease;
+  }
+  
+  .blog-post-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Pagination styles */
+  nav a {
+    transition: all 0.2s ease;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    .grid {
+      gap: 6px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .p-6 {
+      padding: 1.25rem;
+    }
+  }
+</style>

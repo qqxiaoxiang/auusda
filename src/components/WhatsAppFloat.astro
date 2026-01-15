@@ -1,0 +1,95 @@
+---
+const phoneNumber = "8618477468950";
+const whatsappUrl = `https://wa.me/${phoneNumber}`;
+---
+
+<a 
+  href={whatsappUrl} 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="whatsapp-float"
+  aria-label="Chat with us on WhatsApp"
+  title="Chat with us on WhatsApp"
+>
+  <div class="whatsapp-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+      <path fill="#ffffff" d="M24 2.016c-12.941 0-23.434 10.493-23.434 23.434s10.493 23.434 23.434 23.434c12.94 0 23.434-10.493 23.434-23.434s-10.494-23.434-23.434-23.434zm9.397 18.984c-.314 0-.628.041-.933.123-3.208.945-6.789 2.693-9.354 5.255-2.563-2.562-4.31-6.146-5.255-9.353-.082-.305-.123-.619-.123-.933s.041-.628.123-.933c.944-3.208 2.693-6.789 5.255-9.354 2.563 2.562 6.147 4.31 9.354 5.255.305.082.619.123.933.123s.628-.041.933-.123c3.208-.945 6.789-2.693 9.354-5.255 2.562 2.562 4.309 6.146 5.254 9.353.083.305.124.619.124.933s-.041.628-.124.933c-.945 3.208-2.693 6.789-5.254 9.354-2.563-2.562-6.147-4.31-9.354-5.255-.305-.082-.619-.123-.933-.123z"/>
+      <path fill="#25d366" d="M12.86 30.01c-.154-1.682.102-3.363.802-4.866 1.332-2.727 3.699-4.976 6.683-6.272.624-.255 1.29-.392 1.968-.392.661 0 1.317.13 1.923.368l2.215.946-4.577 1.97c-.79.34-1.674.524-2.58.524-.561 0-1.108-.098-1.628-.294-.521-.196-1.012-.464-1.455-.794-.443-.33-.825-.732-1.129-1.192-.305-.46-.536-.971-.681-1.521-.147-.55-.176-1.128-.082-1.695.094-.566.327-1.099.681-1.565.354-.466.805-.847 1.332-1.128.527-.282 1.116-.427 1.733-.427.92 0 1.771.33 2.493.972.722.642 1.09 1.531 1.09 2.543 0 .779-.26 1.496-.758 2.128-.498.632-1.159 1.11-1.955 1.417-.796.308-1.674.464-2.606.464-.835 0-1.645-.155-2.409-.464-.764-.309-1.455-.732-2.056-1.262-.602-.53-.972-1.163-1.093-1.873-.121-.71-.033-1.415.262-2.088.295-.673.752-1.262 1.349-1.737.597-.474 1.293-.825 2.063-1.035.77-.21 1.583-.315 2.411-.315 1.415 0 2.759.443 3.993 1.315 1.234.872 2.189 2.034 2.828 3.433.639 1.398.964 2.919.964 4.527 0 2.336-.847 4.432-2.507 6.237-1.66 1.806-3.872 2.72-6.473 2.72-.945 0-1.861-.155-2.728-.443-.867-.289-1.688-.653-2.443-1.084l-1.654-1.025z"/>
+    </svg>
+  </div>
+  <span class="whatsapp-text">Chat on WhatsApp</span>
+</a>
+
+<style>
+  .whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #25d366;
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .whatsapp-float:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    background-color: #12b755;
+  }
+
+  .whatsapp-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .whatsapp-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .whatsapp-text {
+    white-space: nowrap;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .whatsapp-float {
+      bottom: 1.5rem;
+      right: 1.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 50px;
+    }
+
+    .whatsapp-icon {
+      display: none;
+    }
+
+    .whatsapp-text {
+      display: inline;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .whatsapp-float {
+      bottom: 1rem;
+      right: 1rem;
+      padding: 0.625rem 1rem;
+    }
+
+    .whatsapp-text {
+      font-size: 0.9rem;
+    }
+  }
+</style>

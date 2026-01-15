@@ -1,0 +1,126 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { miniPcs } from '../../data/mini-pcs';
+---
+
+<Layout title="Mini PCs - Auusda" description="Browse our range of high-performance Mini PCs with various configurations, customizable for bulk purchase">
+  <!-- Page Banner -->
+  <section class="bg-blue-600 text-white py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">Mini PCs</h1>
+      <p class="text-lg">Explore our range of high-performance Mini PCs with various configurations, customizable for bulk purchase.</p>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {miniPcs.map(miniPc => (
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300" key={miniPc.id}>
+            <!-- Product Image -->
+            <div class="h-64 overflow-hidden">
+              <img 
+                src={miniPc.image} 
+                alt={miniPc.title} 
+                class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            
+            <!-- Product Info -->
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">{miniPc.title}</h3>
+              <p class="text-gray-600 mb-4 line-clamp-2">{miniPc.description}</p>
+              
+              <!-- Key Specifications -->
+              <div class="mb-4">
+                {miniPc.features.slice(0, 3).map((feature, index) => (
+                  <div key={index} class="text-sm text-gray-600 mb-1">{feature}</div>
+                ))}
+              </div>
+              
+              <!-- Action Buttons -->
+              <div class="flex gap-3">
+                <a 
+                  href={`/products/mini-pcs/${miniPc.id}`} 
+                  class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors text-center"
+                >
+                  View Details
+                </a>
+                <button 
+                  class="header-get-quote-btn bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors"
+                >
+                  Get Quote
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Factory Advantage Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Factory</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">We are a direct factory specializing in Mini PC manufacturing, offering customization options and bulk purchase discounts.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Direct Factory Pricing</h3>
+          <p class="text-gray-600">We offer competitive pricing directly from our factory, eliminating middleman costs.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Customization Options</h3>
+          <p class="text-gray-600">We offer various customization options to meet your specific requirements.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Bulk Purchase Discounts</h3>
+          <p class="text-gray-600">We offer attractive discounts for bulk purchases, perfect for business and resellers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Section -->
+  <section class="py-16 bg-blue-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">Interested in Bulk Purchase?</h2>
+        <p class="text-gray-600 mb-6">Contact us for custom quotes and bulk pricing on our Mini PCs.</p>
+        <button 
+          class="header-get-quote-btn bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors text-lg font-medium"
+        >
+          Get Custom Quote
+        </button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

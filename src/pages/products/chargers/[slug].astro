@@ -1,0 +1,239 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { chargers } from '../../../data/chargers';
+
+// Generate static paths for each charger
+export function getStaticPaths() {
+  return chargers.map(charger => ({
+    params: { slug: charger.id },
+  }));
+}
+
+// Get the slug from params
+const { slug } = Astro.params;
+
+// Find the charger with matching id
+const charger = chargers.find(c => c.id === slug);
+
+// If charger not found, redirect to 404
+if (!charger) {
+  return Astro.redirect('/404', 302);
+}
+---
+
+<Layout title={charger.seo.title} description={charger.seo.description}>
+  <!-- Product Detail Section -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb mb-8 text-sm text-gray-600">
+        <a href="/" class="hover:text-blue-600">Home</a> &gt;
+        <a href="/products" class="hover:text-blue-600"> Products</a> &gt;
+        <a href="/products/chargers" class="hover:text-blue-600"> Laptop Chargers</a> &gt;
+        <span class="text-gray-400">{charger.title}</span>
+      </nav>
+
+      <!-- Product Content -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
+          <!-- Product Image -->
+            <div class="lg:sticky lg:top-24">
+              <div class="rounded-lg overflow-hidden h-80 mb-4">
+                <img 
+                  src={charger.image} 
+                  alt={charger.title} 
+                  class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            
+            <!-- Product Basic Info -->
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <h3 class="text-lg font-semibold mb-2">Quick Specifications</h3>
+              <ul class="space-y-2 text-sm">
+                <li class="flex justify-between">
+                  <span class="font-medium">Voltage:</span>
+                  <span>{charger.voltage}</span>
+                </li>
+                <li class="flex justify-between">
+                  <span class="font-medium">Current:</span>
+                  <span>{charger.current}</span>
+                </li>
+                <li class="flex justify-between">
+                  <span class="font-medium">Plug Type:</span>
+                  <span>{charger.plugType}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Product Details -->
+          <div>
+            <!-- Product Title -->
+            <h1 class="text-3xl font-bold mb-4">{charger.title}</h1>
+            <p class="text-lg text-gray-600 mb-6">{charger.description}</p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap gap-4 mb-8">
+              <button 
+                class="header-get-quote-btn bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors text-lg font-medium"
+              >
+                Get Custom Quote
+              </button>
+              <a href="/products/chargers" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-md hover:bg-gray-300 transition-colors text-lg font-medium">
+                View All Chargers
+              </a>
+            </div>
+
+            <!-- Compatible Models -->
+            <section class="mb-12">
+              <h2 class="text-2xl font-bold mb-6">Compatible Models</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {charger.compatibleModels.map((model, index) => (
+                  <div key={index} class="flex items-center space-x-3">
+                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>{model}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <!-- Key Features -->
+            <section class="mb-12">
+              <h2 class="text-2xl font-bold mb-6">Key Features</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {charger.features.map((feature, index) => (
+                  <div key={index} class="flex items-start space-x-3">
+                    <svg class="w-5 h-5 text-green-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <!-- Factory Customization -->
+            <section class="bg-blue-50 p-8 rounded-lg">
+              <h2 class="text-2xl font-bold mb-4">Factory Customization</h2>
+              <p class="mb-4">As a direct factory, we offer various customization options for bulk purchases:</p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Custom configurations (voltage, current, plug type)</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Branding and logo customization</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Custom packaging options</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <svg class="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Bulk pricing discounts</span>
+                </li>
+              </ul>
+              <button 
+                class="header-get-quote-btn bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium"
+              >
+                Request Custom Quote
+              </button>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Factory Advantage Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Factory</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">We are a direct factory specializing in laptop charger manufacturing, offering customization options and bulk purchase discounts.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Direct Factory Pricing</h3>
+          <p class="text-gray-600">We offer competitive pricing directly from our factory, eliminating middleman costs.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Customization Options</h3>
+          <p class="text-gray-600">We offer various customization options to meet your specific requirements.</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Bulk Purchase Discounts</h3>
+          <p class="text-gray-600">We offer attractive discounts for bulk purchases, perfect for business and resellers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Section -->
+  <section class="py-16 bg-blue-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">Ready to Place an Order?</h2>
+        <p class="text-gray-600 mb-6">Contact us for custom quotes and bulk pricing on this laptop charger.</p>
+        <button 
+          class="header-get-quote-btn bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors text-lg font-medium"
+        >
+          Get Custom Quote
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    
+    .breadcrumb a {
+      text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem !important;
+      }
+      
+      h2 {
+        font-size: 1.5rem !important;
+      }
+      
+      .flex {
+        flex-direction: column;
+      }
+    }
+  </style>
+</Layout>

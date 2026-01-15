@@ -1,0 +1,332 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Custom Laptop Solutions - Auusda" description="Customize your perfect laptop with Auusda's factory direct customization service. Design your ideal device with our easy-to-use customization process">
+  <!-- Hero Banner Section -->
+  <section class="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
+    <img 
+      src="https://res.cloudinary.com/dcfcz3rvj/image/upload/f_auto,q_auto/ali//@sc02/kf/H815e2b17528449cea027e85b07db3e94t.jpg?hasNWGrade=" 
+      alt="Auusda Laptop Manufacturing" 
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+      <div class="container mx-auto px-4 py-16 text-white">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Custom Laptop Solutions</h1>
+        <p class="text-lg md:text-xl max-w-3xl">Design your perfect laptop with Auusda's factory direct customization. From specifications to finishes, we build exactly what you need.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customization Process Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Our Customization Process</h2>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-semibold text-gray-900 mb-6">How It Works</h3>
+          <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+            Our streamlined customization process ensures you get exactly the laptop you need, built to your specifications in our state-of-the-art factory.
+          </p>
+          
+          <div class="space-y-6">
+            {
+              [
+                { step: "1", title: "Design Your Laptop", description: "Choose your specifications, components, and finishes using our customization options." },
+                { step: "2", title: "Get a Quote", description: "Receive an instant quote based on your selected configurations." },
+                { step: "3", title: "Factory Production", description: "Our skilled technicians build your laptop to exact specifications." },
+                { step: "4", title: "Quality Testing", description: "Every custom laptop undergoes rigorous quality control testing." },
+                { step: "5", title: "Delivery", description: "Your custom laptop is shipped directly to your door." }
+              ].map((item, index) => (
+                <div key={index} class="flex items-start space-x-4">
+                  <div class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
+                    {item.step}
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-900 mb-1">{item.title}</h4>
+                    <p class="text-gray-600">{item.description}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-xl">
+          <img 
+            src="https://res.cloudinary.com/dcfcz3rvj/image/upload/f_auto,q_auto/ali2/kf/H24b17ffb9db04520bf86f963eb18d78de.png" 
+            alt="Laptop Customization Process" 
+            class="w-full h-auto object-contain min-h-[400px]"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customization Options Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Customization Options</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Processor Option -->
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Processor</h3>
+          <p class="text-gray-600 mb-4">Choose from the latest Intel and AMD processors to match your performance needs.</p>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Intel Core i5/i7/i9
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              AMD Ryzen 5/7/9
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Custom processor options available
+            </li>
+          </ul>
+        </div>
+
+        <!-- Memory Option -->
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Memory (RAM)</h3>
+          <p class="text-gray-600 mb-4">Select the optimal memory configuration for your multitasking and performance requirements.</p>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              8GB DDR4/DDR5
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              16GB DDR4/DDR5
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              32GB+ DDR4/DDR5
+            </li>
+          </ul>
+        </div>
+
+        <!-- Storage Option -->
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Storage</h3>
+          <p class="text-gray-600 mb-4">Choose from a variety of storage options for your data needs.</p>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              256GB SSD
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              512GB SSD
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              1TB+ SSD Options
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Dual storage configurations
+            </li>
+          </ul>
+        </div>
+
+        <!-- Display Option -->
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Display</h3>
+          <p class="text-gray-600 mb-4">Select the perfect display for your visual needs.</p>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              14" to 17.3" Sizes
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Full HD (1920x1080)
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              4K Ultra HD Options
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              High refresh rate options (144Hz+)
+            </li>
+          </ul>
+        </div>
+
+        <!-- Graphics Option -->
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Graphics</h3>
+          <p class="text-gray-600 mb-4">Choose dedicated graphics for gaming, design, or professional work.</p>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Integrated graphics options
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              NVIDIA GeForce RTX Series
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              AMD Radeon RX Series
+            </li>
+          </ul>
+        </div>
+
+        <!-- Design & Finish Option -->
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Design & Finish</h3>
+          <p class="text-gray-600 mb-4">Customize the look and feel of your laptop.</p>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Multiple color options
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Premium metal finishes
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Custom branding options
+            </li>
+            <li class="flex items-center">
+              <svg class="w-2.5 h-2.5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Keyboard backlight customization
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customization Form Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Start Your Customization</h2>
+      
+      <div class="max-w-3xl mx-auto text-center">
+        <h3 class="text-xl font-bold text-gray-800 mb-6">Start Your Customization Journey</h3>
+        <p class="text-gray-600 mb-8">Fill out the form below to get a personalized quote for your custom laptop. Our team will get back to you within 24 hours with detailed information and pricing.</p>
+        <button class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium header-get-quote-btn">
+          Open Inquiry Form
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Auusda Section -->
+  <section class="py-20 bg-blue-600 text-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Why Choose Auusda for Custom Laptops?</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg text-center hover:bg-white/20 transition-colors">
+          <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Factory Direct Pricing</h3>
+          <p class="opacity-90">No middlemen means better prices for you. Get factory direct pricing on custom laptops.</p>
+        </div>
+        
+        <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg text-center hover:bg-white/20 transition-colors">
+          <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">End-to-End Control</h3>
+          <p class="opacity-90">We control the entire production process from design to delivery, ensuring quality at every step.</p>
+        </div>
+        
+        <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg text-center hover:bg-white/20 transition-colors">
+          <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Expert Support</h3>
+          <p class="opacity-90">Our team of experts will guide you through the customization process to ensure you get exactly what you need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
